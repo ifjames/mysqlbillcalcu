@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Electricity Bill Calculator</title>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+       
+    </header>
+
+    <div class="container">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="themeSwitch">
+            <label class="form-check-label" for="themeSwitch">
+                <i class="fas fa-sun"></i> / <i class="fas fa-moon"></i> Toggle Theme
+            </label>
+        </div>
+
+        <form action="#box" role="form" name="elecForm" class="form">
+            <fieldset class="form-group">
+                <label for="previousReading">Previous Meter Reading</label>
+                <input class="form-control" name="previousReading" type="number" value="0" placeholder="Previous Meter Reading">
+            </fieldset>
+        
+            <fieldset class="form-group">
+                <label for="currentReading">Current Meter Reading</label>
+                <input class="form-control" name="currentReading" type="number" value="0" placeholder="Current Meter Reading">
+            </fieldset>
+        
+            <fieldset class="form-group">
+                <label for="ratePerKwh">Rate per kWh</label>
+                <input class="form-control" name="ratePerKwh" type="number" value="0" placeholder="Rate per kWh">
+            </fieldset>
+        
+            <fieldset class="form-group">
+                <label for="startDate">Start Date</label>
+                <input class="form-control" name="startDate" type="date" placeholder="Start Date">
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="endDate">End Date</label>
+                <input class="form-control" name="endDate" type="date" placeholder="End Date">
+            </fieldset>
+        
+            <fieldset class="form-group">
+                <label for="numPeople">Number of People Staying</label>
+                <input class="form-control" name="numPeople" type="number" value="0" min="0" oninput="updatePeopleInputs()">
+            </fieldset>
+        
+            <div id="peopleInputs" class="scroll-container"></div>
+        
+            <fieldset class="form-group">
+                <button class="btn" type="button" onClick="calcBill()">Calculate Bill</button>
+            </fieldset>
+        </form>
+
+        <div class="receipt-container" id="box">
+            <h2>Bill Details</h2>
+            <div id="billDetails" class="details"></div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+    <!-- Link to external JS -->
+    <script src="scripts.js"></script>
+    
+</body>
+</html>
